@@ -33,7 +33,6 @@ class CoolingCenterParser: NSObject, XMLParserDelegate {
     }
 
     func parser(_ parser: XMLParser, foundCharacters string: String) {
-        guard let center = currentCenter else { return }
         let value = string.trimmingCharacters(in: .whitespacesAndNewlines)
         if value.isEmpty { return }
 
