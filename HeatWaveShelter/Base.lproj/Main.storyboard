@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--위치-->
         <scene sceneID="bBT-1P-ocp">
             <objects>
                 <viewController storyboardIdentifier="MapViewController" id="srg-ym-F5F" customClass="MapViewController" customModule="HeatWaveShelter" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,16 +31,16 @@
                             <constraint firstItem="obP-kk-ENn" firstAttribute="bottom" secondItem="ghN-Iu-gJJ" secondAttribute="bottom" id="q54-D2-fkD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="h9X-BA-msT"/>
+                    <tabBarItem key="tabBarItem" title="위치" image="map.fill" catalog="system" id="h9X-BA-msT"/>
                     <connections>
                         <outlet property="mapView" destination="ghN-Iu-gJJ" id="unu-xX-UEN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IVK-xl-Yvc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="747.32824427480909" y="-53.521126760563384"/>
+            <point key="canvasLocation" x="569" y="-54"/>
         </scene>
-        <!--Item-->
+        <!--쉼터-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HeatWaveShelter" customModuleProvider="target" sceneMemberID="viewController">
@@ -72,14 +72,45 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pR6-Qd-Jul" secondAttribute="bottom" id="hbA-ue-Sz8"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Sdg-qb-gnS"/>
+                    <tabBarItem key="tabBarItem" title="쉼터" image="house.fill" catalog="system" id="Sdg-qb-gnS"/>
                     <connections>
                         <outlet property="tableView" destination="pR6-Qd-Jul" id="70O-6F-2Qx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1530.534351145038" y="-54.225352112676056"/>
+            <point key="canvasLocation" x="1390" y="-54"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="Jua-vR-R6T">
+            <objects>
+                <viewController storyboardIdentifier="WebViewController" id="Jny-dE-Ze9" customClass="WebViewController" customModule="HeatWaveShelter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iU5-yw-c8d">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wxu-iP-5bK">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="TZD-bU-Om5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TZD-bU-Om5" firstAttribute="bottom" secondItem="Wxu-iP-5bK" secondAttribute="bottom" id="0pp-bJ-mY8"/>
+                            <constraint firstItem="TZD-bU-Om5" firstAttribute="trailing" secondItem="Wxu-iP-5bK" secondAttribute="trailing" id="9Dt-V2-RLf"/>
+                            <constraint firstItem="Wxu-iP-5bK" firstAttribute="top" secondItem="TZD-bU-Om5" secondAttribute="top" id="bPo-tp-II2"/>
+                            <constraint firstItem="Wxu-iP-5bK" firstAttribute="leading" secondItem="TZD-bU-Om5" secondAttribute="leading" id="dMK-py-ufj"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fyw-ix-dci" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1074" y="-54"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="3hE-VM-IhY">
@@ -97,10 +128,12 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T2v-uC-n5q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-179.38931297709922" y="-53.521126760563384"/>
+            <point key="canvasLocation" x="-326" y="-54"/>
         </scene>
     </scenes>
     <resources>
+        <image name="house.fill" catalog="system" width="128" height="104"/>
+        <image name="map.fill" catalog="system" width="128" height="110"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

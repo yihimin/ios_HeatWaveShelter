@@ -1,29 +1,17 @@
-//
-//  WebViewController.swift
-//  HeatWaveShelter
-//
-//  Created by Induk-cs-1 on 2025/05/29.
-//
-
 import UIKit
+import WebKit
 
 class WebViewController: UIViewController {
+    var query: String = ""
+    @IBOutlet weak var webView: WKWebView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let urlString = "https://map.kakao.com/?q=\(encodedQuery)"
+        if let url = URL(string: urlString) {
+            webView.load(URLRequest(url: url))
+        }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
