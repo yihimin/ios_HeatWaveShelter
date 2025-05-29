@@ -14,6 +14,7 @@
 		21C35B9E2DE827B300E2CBE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21C35B9D2DE827B300E2CBE8 /* Assets.xcassets */; };
 		21C35BA12DE827B300E2CBE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21C35B9F2DE827B300E2CBE8 /* LaunchScreen.storyboard */; };
 		21C35BA92DE8348600E2CBE8 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C35BA82DE8348600E2CBE8 /* WebViewController.swift */; };
+		21C35BAB2DE83D6200E2CBE8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C35BAA2DE83D6200E2CBE8 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		21C35BA02DE827B300E2CBE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21C35BA22DE827B300E2CBE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21C35BA82DE8348600E2CBE8 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		21C35BAA2DE83D6200E2CBE8 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				21C35B942DE827B200E2CBE8 /* AppDelegate.swift */,
 				21C35B962DE827B200E2CBE8 /* SceneDelegate.swift */,
 				21C35B982DE827B200E2CBE8 /* ViewController.swift */,
+				21C35BAA2DE83D6200E2CBE8 /* MapViewController.swift */,
 				21C35BA82DE8348600E2CBE8 /* WebViewController.swift */,
 				21C35B9A2DE827B200E2CBE8 /* Main.storyboard */,
 				21C35B9D2DE827B300E2CBE8 /* Assets.xcassets */,
@@ -144,6 +147,7 @@
 				21C35B992DE827B200E2CBE8 /* ViewController.swift in Sources */,
 				21C35B952DE827B200E2CBE8 /* AppDelegate.swift in Sources */,
 				21C35B972DE827B200E2CBE8 /* SceneDelegate.swift in Sources */,
+				21C35BAB2DE83D6200E2CBE8 /* MapViewController.swift in Sources */,
 				21C35BA92DE8348600E2CBE8 /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

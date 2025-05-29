@@ -8,6 +8,8 @@ struct CoolingCenter {
     var type: String = ""
     var address: String = ""
     var useNumber: String = ""
+    var x: String = ""
+    var y: String = ""
 }
 
 // 2. XMLParserDelegate 구현 클래스
@@ -95,4 +97,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.detailTextLabel?.text = shelter.address
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let tabBar = tabBarController,
+           let mapVC = tabBar.viewControllers?[1] as? MapViewController {
+            mapVC.centers = jobSites
+            tabBar.selectedIndex = 1
+        }
+    }
+
 }
