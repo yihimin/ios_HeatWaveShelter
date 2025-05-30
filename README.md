@@ -2,7 +2,9 @@
 
 서울시의 폭염 대피소를 편리하게 조회하고 위치를 지도에서 확인할 수 있는 iOS 앱입니다.  
 **MapKit**, **WebKit**, **XMLParser**, **UIKit** 등을 활용하여 사용자에게 실시간 정보를 제공합니다.
+
 ---
+![image](https://github.com/user-attachments/assets/fb124286-cf9a-4c1e-a072-54fe8ad9a84d)
 ![image](https://github.com/user-attachments/assets/76c35209-22b2-442a-8202-725356e823de)
 ## 🧭 주요 기능
 
