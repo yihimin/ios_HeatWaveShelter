@@ -1,8 +1,6 @@
-// ViewController.swift
-
 import UIKit
 
-// 1. 데이터 모델
+// 1. 데이터 목록
 struct CoolingCenter {
     var name: String = ""
     var type: String = ""
@@ -41,11 +39,10 @@ class CoolingCenterParser: NSObject, XMLParserDelegate {
         case "CC_TYPE": currentCenter?.type += value
         case "ADRES": currentCenter?.address += value
         case "USE_NUM": currentCenter?.useNumber += value
-        case "X": currentCenter?.x += value               
+        case "X": currentCenter?.x += value
         case "Y": currentCenter?.y += value
         default: break
         }
-
     }
 
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
@@ -58,23 +55,25 @@ class CoolingCenterParser: NSObject, XMLParserDelegate {
 
 // 3. ViewController 구현
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+
     @IBOutlet weak var tableView: UITableView!
     var jobSites: [CoolingCenter] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 100
         fetchShelters()
     }
-    
+
     func fetchShelters() {
         let apiKey = "MDAVDC3T-MDAV-MDAV-MDAV-MDAVDC3TTS"
         let urlString = "https://safemap.go.kr/openApiService/data/getCoolingcentreData.do?serviceKey=\(apiKey)&pageNo=1&numOfRows=10"
-        
+
         guard let url = URL(string: urlString) else { return }
-        
+
         URLSession.shared.dataTask(with: url) { data, _, error in
             if let data = data {
                 let parser = CoolingCenterParser()
@@ -86,41 +85,56 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }.resume()
     }
-    
+
     // MARK: - UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return jobSites.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ShelterCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ShelterCell", for: indexPath) as? ShelterTableViewCell else {
+            return UITableViewCell()
+        }
+
         let shelter = jobSites[indexPath.row]
-        cell.textLabel?.text = shelter.name
-        cell.detailTextLabel?.text = shelter.address
+        
+        // 텍스트 설정
+        cell.nameLabel.text = shelter.name
+        cell.addressLabel.text = shelter.address
+        cell.typeLabel.text = shelter.type
+        cell.capacityLabel.text = "🧍‍♀️ 정원: \(shelter.useNumber)"
+
+        // 스타일 적용
+        cell.nameLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        cell.addressLabel.font = UIFont.systemFont(ofSize: 13)
+        cell.addressLabel.textColor = .darkGray
+        cell.typeLabel.font = UIFont.systemFont(ofSize: 13)
+        cell.typeLabel.textColor = .gray
+        cell.capacityLabel.font = UIFont.systemFont(ofSize: 13)
+        cell.capacityLabel.textColor = .gray
+
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedCenter = jobSites[indexPath.row]
-        
-        if let tabBar = tabBarController,
-           let mapVC = tabBar.viewControllers?[0] as? MapViewController {
-            mapVC.focusedCenter = selectedCenter
-            tabBar.selectedIndex = 0              
-        }
-    }
-    
+
+    // 셀 클릭시 지도 탭으로 이동
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selected = jobSites[indexPath.row]
-        performSegue(withIdentifier: "toWebView", sender: selected.name)
-    }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toWebView",
-           let destinationVC = segue.destination as? WebViewController,
-           let query = sender as? String {
-            destinationVC.query = query
+        if let tabBar = tabBarController,
+           let mapVC = tabBar.viewControllers?[2] as? MapViewController {
+            mapVC.focusedAddress = selected.address
+            tabBar.selectedIndex = 2
         }
     }
 
+    // WebView 전환 버튼
+    @IBAction func showInWebView(_ sender: UIButton) {
+        let point = sender.convert(CGPoint.zero, to: tableView)
+        if let indexPath = tableView.indexPathForRow(at: point) {
+            let center = jobSites[indexPath.row]
+            performSegue(withIdentifier: "toWebView", sender: center.name)
+        }
+    }
+
+   
 }

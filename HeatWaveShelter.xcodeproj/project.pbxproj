@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21094E2D2DE94A58000184E1 /* ShelterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21094E2C2DE94A57000184E1 /* ShelterTableViewCell.swift */; };
 		21C35B952DE827B200E2CBE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C35B942DE827B200E2CBE8 /* AppDelegate.swift */; };
 		21C35B972DE827B200E2CBE8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C35B962DE827B200E2CBE8 /* SceneDelegate.swift */; };
 		21C35B992DE827B200E2CBE8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C35B982DE827B200E2CBE8 /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21094E2C2DE94A57000184E1 /* ShelterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterTableViewCell.swift; sourceTree = "<group>"; };
 		21C35B912DE827B200E2CBE8 /* HeatWaveShelter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeatWaveShelter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21C35B942DE827B200E2CBE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21C35B962DE827B200E2CBE8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			children = (
 				21C35B942DE827B200E2CBE8 /* AppDelegate.swift */,
 				21C35B962DE827B200E2CBE8 /* SceneDelegate.swift */,
+				21094E2C2DE94A57000184E1 /* ShelterTableViewCell.swift */,
 				21C35B982DE827B200E2CBE8 /* ViewController.swift */,
 				21C35BAA2DE83D6200E2CBE8 /* MapViewController.swift */,
 				21C35BA82DE8348600E2CBE8 /* WebViewController.swift */,
@@ -147,6 +150,7 @@
 				21C35B992DE827B200E2CBE8 /* ViewController.swift in Sources */,
 				21C35B952DE827B200E2CBE8 /* AppDelegate.swift in Sources */,
 				21C35B972DE827B200E2CBE8 /* SceneDelegate.swift in Sources */,
+				21094E2D2DE94A58000184E1 /* ShelterTableViewCell.swift in Sources */,
 				21C35BAB2DE83D6200E2CBE8 /* MapViewController.swift in Sources */,
 				21C35BA92DE8348600E2CBE8 /* WebViewController.swift in Sources */,
 			);
