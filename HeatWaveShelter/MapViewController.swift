@@ -22,8 +22,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
 
     func showPin(for address: String) {
+        // 서울특별시 또는 서울시 제거
+        let trimmedAddress = address
+            .replacingOccurrences(of: "서울특별시 ", with: "")
+            .replacingOccurrences(of: "서울시 ", with: "")
+
         let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(address) { placemarks, error in
+        geocoder.geocodeAddressString(trimmedAddress) { placemarks, error in
             if let placemark = placemarks?.first,
                let location = placemark.location {
 
@@ -41,7 +46,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 // 핀 추가
                 let annotation = MKPointAnnotation()
                 annotation.coordinate = coordinate
-                annotation.title = address
+                annotation.title = trimmedAddress
                 self.mapView.addAnnotation(annotation)
 
             } else {
@@ -49,6 +54,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             }
         }
     }
+
 
     // (선택) 핀 클릭 시 말풍선 보이게 하기
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
